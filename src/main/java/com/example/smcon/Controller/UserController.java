@@ -9,24 +9,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.smcon.DTO.EmployeeDto;
-import com.example.smcon.Service.EmployeeService;
+import com.example.smcon.DTO.UserDto;
+import com.example.smcon.Service.LeadUserService;
 
 @RestController
 @RequestMapping("api/")
-public class EmployeeController {
+public class UserController {
     @Autowired
-    private EmployeeService empService;
+    private LeadUserService empService;
 
     @GetMapping("all")
-    public ResponseEntity<?> getAllEmployee(){
+    public ResponseEntity<?> getAllUsers(){
         return empService.getAllUsers();
     }
     
-    @PostMapping("add")
-    public ResponseEntity<?> addEmployee(@RequestBody EmployeeDto employee){
-        return empService.createEmployee(employee);
-    }
 
     @GetMapping(value = {"/{email}"})
     public ResponseEntity<?> getByEmail(@PathVariable String email){
@@ -34,7 +30,7 @@ public class EmployeeController {
     }
     
     @PostMapping("update")
-    public ResponseEntity<?> updateEmployee(@RequestBody EmployeeDto employee){
-        return empService.updateEmployee(employee);
+    public ResponseEntity<?> updateEmployee(@RequestBody UserDto user){
+        return empService.updateUser(user);
     }
 }

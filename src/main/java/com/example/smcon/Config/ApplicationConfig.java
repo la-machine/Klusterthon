@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.example.smcon.Repository.EmployeRepository;
+import com.example.smcon.Repository.LeadUserRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    private final EmployeRepository empRepository;
+    private final LeadUserRepository empRepository;
     
     @Bean
     public UserDetailsService userDetailsService(){

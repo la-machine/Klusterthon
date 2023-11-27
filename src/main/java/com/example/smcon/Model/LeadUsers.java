@@ -22,16 +22,21 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee implements UserDetails{
+public class LeadUsers implements UserDetails{
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
+    private String fname;
+    private String lname;
     private String email;
     private String password;
+    private String tel;
+    private String verificationCode;
+    private String referal;
+    @Builder.Default
+    private boolean isEnable = false;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private int age;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -54,6 +59,6 @@ public class Employee implements UserDetails{
     }
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.isEnable;
     }
 }
