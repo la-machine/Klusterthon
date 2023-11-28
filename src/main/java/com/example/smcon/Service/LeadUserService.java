@@ -43,7 +43,7 @@ public class LeadUserService {
         userRepository.save(emp);
         emailSender.send(user.getEmail(), buildEmail(user.getFname(), code));
         
-        return ResponseEntity.status(200).body("Employee saved successfully : " + emp);
+        return ResponseEntity.status(200).body("User saved successfully : " + emp);
     }
 
     public ResponseEntity<?> getAllUsers(){
